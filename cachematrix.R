@@ -4,17 +4,20 @@
 ## cached version
 makeCacheMatrix <- function(x = matrix()) {  
   
+  ## set the value of the matrix and NULL out the inverse
   set <- function(y = matrix())
   {
     cacheMatrix <<- y
     cacheInverse <<- NULL
   }  
-
+  
+  ## assign the inverse value from the calling function
   setInverse <- function(z = matrix())
   {
     cacheInverse <<- z
   }
   
+  ## get the cached matrix or NULL if not assigned
   get <- function() 
   {
     if(exists("cacheMatrix"))
@@ -27,6 +30,7 @@ makeCacheMatrix <- function(x = matrix()) {
     }
   }
   
+  ## get the cached inverse matrix or NULL if not assigned
   getInverse <- function() 
   {
     if(exists("cacheInverse"))
